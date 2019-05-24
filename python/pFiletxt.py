@@ -1,7 +1,7 @@
 import os
 import sys
 
-def py_getTxtFileDataAsList(path):
+def get_lines_list(path):
 	'''
 	Gives the list of all the lines in the txt File.
 	path = Full path (Dir + FileName)
@@ -16,7 +16,7 @@ def py_getTxtFileDataAsList(path):
     else:
         print "Path Directory Does Not Exists"
 
-def py_getTxtFileInfo(path):
+def get_info(path):
 	'''
 	Get the Info of the data that is present in the txt File
 	Total Lines = RESULT

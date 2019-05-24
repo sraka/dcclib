@@ -1,16 +1,9 @@
 import datetime
 from time import gmtime, strftime
 
-'''
-import sys
-sys.path.append(r'D:\__CS\___HOME_DIR\pipeline\CoreLibrary\modulePythonM')
-import xdatetime as xdatetime;reload(xdatetime)
-
-'''
 def get_current_date(mode=1):
     '''
         @returns : Current Date
-        
     '''
     if mode == 1:
         return datetime.date.today().__str__()
@@ -25,7 +18,6 @@ def get_current_date(mode=1):
 def get_current_time(mode=1):
     '''
         @returns : Current Time
-        
     '''
     if mode == 1:
         return strftime("%H:%M:%S", gmtime())
@@ -35,10 +27,19 @@ def get_current_time(mode=1):
 def get_current_datetime():
     '''
         @returns : Current Date & Time
-        
     '''
     return datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
+def get_current_date_formatted(format):
+
+    if format == "short_date":
+        print "short_date"
+    elif format == "long-date":
+        print "long-date"
+    elif format == "compact_date":
+        print "compact_date"
+    elif format == "iso_date":
+        print "iso_date"
 
 
  

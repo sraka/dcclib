@@ -1,8 +1,12 @@
 import os
 import sys
 
-def lazy_sys_path_append(path):
-    import sys
+def sys_path_append(path):
+    '''
+    Append path in sys only if its not already present
+    :param path:
+    :return:
+    '''
     if path in sys.path:
         print 'Path already present'
     else:
@@ -10,7 +14,7 @@ def lazy_sys_path_append(path):
         print 'Path Added'
 
 
-def py_getDirFolderList(path):
+def get_folder_list(path):
     ''' 
     Will return the list of all the Folders present in the Directory
     path = Directory
@@ -18,7 +22,7 @@ def py_getDirFolderList(path):
     filenames = os.listdir(path)
     list = []
     for filename in filenames: 
-        if os.path.isdir(os.path.join(os.path.abspath(path ), filename)):
+        if os.path.isdir(os.path.join(os.path.abspath(path), filename)):
             list.append(filename)
     return list
     

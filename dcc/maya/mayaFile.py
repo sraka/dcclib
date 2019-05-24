@@ -13,4 +13,6 @@ def get_scene_path():
 def get_scene_dir():
     return pm.sceneName().dirname().__str__()
 
+def get_workspace_path():
+    return str(pm.Workspace().path.dirname())
 

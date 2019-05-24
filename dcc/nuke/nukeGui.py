@@ -3,10 +3,6 @@ import sys
 import PySide.QtCore as QtCore
 import PySide.QtGui as QtGui
 
-
-
-
-
 app = QtGui.QApplication.instance()
 def NukeWindow():
     for widget in app.topLevelWidgets():
