@@ -53,7 +53,7 @@ def open_path_in_file_browser(path):
     if get_platform() == 'windows':
         os.startfile(path)
     elif get_platform() == 'mac':
-        print "Function not defnied for mac"
+        os.system('xdg-open {}'.format(path))
     elif get_platform() == 'linux':
         print "Function not defnied for linux"
 
