@@ -183,58 +183,58 @@ class NukeVray(object):
 
 
 
-class MISC():
-    def swapOutNode(newNode, targetNode):
-    oldSel = []
-    if nuke.selectedNodes():
-        oldSel = [node for node in nuke.selectedNodes()]
-    nukescripts.clear_selection_recursive()
-    sourcePos = (newNode.xpos(), newNode.ypos())
-    targetPos = (targetNode.xpos(), targetNode.ypos())
-    inputNodes = []
-    outputNodes = []
-    for i in range(targetNode.inputs()):
-        inputNodes.append((i, targetNode.input(i)))
-    for depNode in nuke.dependentNodes(nuke.INPUTS | nuke.HIDDEN_INPUTS, targetNode):
-        for i in range(depNode.inputs()):
-            if depNode.input(i) == targetNode:
-                outputNodes.append((i, depNode))
-                depNode.setInput(i, None)
-    targetNode.setSelected(True)
-    nuke.extractSelected()
-    targetNode.setSelected(False)
-    newNode['xpos'].setValue(targetPos[0])
-    newNode['ypos'].setValue(targetPos[1])
-    targetNode['xpos'].setValue(sourcePos[0])
-    targetNode['ypos'].setValue(sourcePos[1])
-    for inNode in inputNodes:
-        newNode.setInput(inNode[0], inNode[1])
-    for outNode in outputNodes:
-        outNode[1].setInput(outNode[0], newNode)
-    for node in oldSel:
-        node.setSelected(True)
+# class MISC():
+#     def swapOutNode(newNode, targetNode):
+#     oldSel = []
+#     if nuke.selectedNodes():
+#         oldSel = [node for node in nuke.selectedNodes()]
+#     nukescripts.clear_selection_recursive()
+#     sourcePos = (newNode.xpos(), newNode.ypos())
+#     targetPos = (targetNode.xpos(), targetNode.ypos())
+#     inputNodes = []
+#     outputNodes = []
+#     for i in range(targetNode.inputs()):
+#         inputNodes.append((i, targetNode.input(i)))
+#     for depNode in nuke.dependentNodes(nuke.INPUTS | nuke.HIDDEN_INPUTS, targetNode):
+#         for i in range(depNode.inputs()):
+#             if depNode.input(i) == targetNode:
+#                 outputNodes.append((i, depNode))
+#                 depNode.setInput(i, None)
+#     targetNode.setSelected(True)
+#     nuke.extractSelected()
+#     targetNode.setSelected(False)
+#     newNode['xpos'].setValue(targetPos[0])
+#     newNode['ypos'].setValue(targetPos[1])
+#     targetNode['xpos'].setValue(sourcePos[0])
+#     targetNode['ypos'].setValue(sourcePos[1])
+#     for inNode in inputNodes:
+#         newNode.setInput(inNode[0], inNode[1])
+#     for outNode in outputNodes:
+#         outNode[1].setInput(outNode[0], newNode)
+#     for node in oldSel:
+#         node.setSelected(True)
     
     
-    def lock_knobs(node, node_lock_message='Node_Locked'):
-    selNode = node
-    allknobs = selNode.allKnobs()
-    for knob in allknobs:
-        if knob.name() != "Render":
-          knob.setEnabled(False)
-    labelVal = selNode['label'].getValue()
-    labCheck = labelVal.rsplit(None, 1)
-    if labCheck:
-      labCheck = labCheck[-1]
-      if labCheck != node_lock_message:
-          selNode['label'].setValue(labelVal+'\n{}'.format(node_lock_message))
-
-    def unlock_knobs(node):
-        selNode = node
-        allknobs=selNode.allKnobs()
-        for knob in allknobs:
-            knob.setEnabled(True)
-        labelVal = selNode['label'].getValue()
-        labCheck = labelVal.rsplit(None, 1)[-1]
-        if labCheck == 'Node_Locked':
-            newLabel = " ".join(labelVal.split()[:-1])
-            selNode['label'].setValue(newLabel)
+    # def lock_knobs(node, node_lock_message='Node_Locked'):
+    # selNode = node
+    # allknobs = selNode.allKnobs()
+    # for knob in allknobs:
+    #     if knob.name() != "Render":
+    #       knob.setEnabled(False)
+    # labelVal = selNode['label'].getValue()
+    # labCheck = labelVal.rsplit(None, 1)
+    # if labCheck:
+    #   labCheck = labCheck[-1]
+    #   if labCheck != node_lock_message:
+    #       selNode['label'].setValue(labelVal+'\n{}'.format(node_lock_message))
+    #
+    # def unlock_knobs(node):
+    #     selNode = node
+    #     allknobs=selNode.allKnobs()
+    #     for knob in allknobs:
+    #         knob.setEnabled(True)
+    #     labelVal = selNode['label'].getValue()
+    #     labCheck = labelVal.rsplit(None, 1)[-1]
+    #     if labCheck == 'Node_Locked':
+    #         newLabel = " ".join(labelVal.split()[:-1])
+    #         selNode['label'].setValue(newLabel)
