@@ -1,25 +1,26 @@
 import datetime
 from time import gmtime, strftime
+from collections import deque, OrderedDict
 
 
-class DatetimeBase():
+class DatetimeBase(object):
     def __init__(self):
-        date = datetime.datetime.now().strftime('%d')
-        month = datetime.datetime.now().strftime('%m')
-        monthfull = datetime.datetime.now().strftime('%B')
-        yearsmall = datetime.datetime.now().strftime('%y')
-        year = datetime.datetime.now().strftime('%Y')
-        week = datetime.datetime.now().strftime('%W')
+        self.date = datetime.datetime.now().strftime('%d')
+        self.month = datetime.datetime.now().strftime('%m')
+        self.monthfull = datetime.datetime.now().strftime('%B')
+        self.yearsmall = datetime.datetime.now().strftime('%y')
+        self.year = datetime.datetime.now().strftime('%Y')
+        self.week = datetime.datetime.now().strftime('%W')
         days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
-        weekday =days[datetime.date.today().weekday()]
-        weekdaynum = datetime.date.weekday(datetime.datetime.now())
+        self.weekday =days[datetime.date.today().weekday()]
+        self.weekdaynum = datetime.date.weekday(datetime.datetime.now())
 
-        hour = datetime.datetime.now().strftime('%d')
-        min = datetime.datetime.now().strftime('%d')
-        sec = datetime.datetime.now().strftime('%d')
-        ampm = datetime.datetime.now().strftime('%p')
-        pass
+        self.hour = datetime.datetime.now().strftime('%d')
+        self.min = datetime.datetime.now().strftime('%d')
+        self.sec = datetime.datetime.now().strftime('%d')
+        self.ampm = datetime.datetime.now().strftime('%p')
 
+    @staticmethod
     def get_current_date(self,format="default"):
         '''
             @returns : Get Current Date formatted
@@ -48,6 +49,8 @@ class DatetimeBase():
                 except:
                     try:
                         return datetime.datetime.now().strftime('%Y-%m-%d')
+                    except:
+                        pass
         elif format == 1:
             return datetime.datetime.now().strftime('%Y/%m/%d')
         elif format == 2:
