@@ -50,13 +50,18 @@ def open_url(path):
     webbrowser.open(path)
 
 def open_path_in_file_browser(path):
-    if get_platform() == 'windows':
-        os.startfile(path)
-    elif get_platform() == 'mac':
-        os.system('xdg-open {}'.format(path))
-    elif get_platform() == 'linux':
-        print "Function not defnied for linux"
-
+    if os.path.isdir(path):
+        if get_platform() == 'windows':
+            os.startfile(path)
+        elif get_platform() == 'mac':
+            print "Function not defnied for linux"
+        elif get_platform() == 'linux':
+            try:
+                os.system('xdg-open {}'.format(path))
+            except:
+                raise ValueError ('Function not working as expected')
+    else:
+        raise ValueError ('Path is not a directory')
 
 def remove_directory_contents(directory):
     for path in os.listdir(directory):
