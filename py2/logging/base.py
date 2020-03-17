@@ -40,4 +40,23 @@ USE:
         
         self._logger = Logger(__name__).logger
         self._logger.info(error)
+        
+Currenlty being used:
+        logger = Logger(__name__).logger
+        logging.basicConfig(level=logging.INFO)
+        log_line_separator = "-" * 79
+        
+manual method of using
+        import logging
+        
+        logger = logging.getLogger(__name__)
+        logger.setLevel(logging.DEBUG)
+        handler = logging.StreamHandler(sys.stdout)
+        handler.setLevel(logging.DEBUG)
+        formatter = logging.Formatter("[%(lineno)s] %(levelname)s:" " %(message)s")
+        handler.setFormatter(formatter)
+        logger.addHandler(handler)
+        logger.propagate = False
+        
+        logger.info("export dir = {}".format(export_paths))
 """
