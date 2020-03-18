@@ -1,11 +1,10 @@
 import os
-import json
+import yaml
 
-
-def read_json(filepath):
+def read_yaml(filepath, safe_load=True):
     """
     :param filepath:
-    :return json_data
+    :return
     """
     if os.path.isdir(filepath) or "." not in os.path.basename(filepath):
         raise ValueError("Path given must be a filepath , not a directory")
@@ -13,19 +12,23 @@ def read_json(filepath):
     if not os.path.exists(filepath):
         raise ValueError("Given filepath {} does not exists.".format(filepath))
 
-    with open(filepath, "r") as reader:
-        json_data = json.load(reader)
-    return json_data
+    if safe_load:
+        with open(filepath, "r") as reader:
+            yaml_data = yaml.safe_load(reader)
+    if not safe_load:
+        with open(filepath, "r") as reader:
+            yaml_data = yaml.load(reader)
 
+    return yaml_data
 
-def write_json(data, filepath, indent=2, force=False):
+def write_yaml(data, filepath, force=False):
     """
-    :param data:
-    :param filepath:
-    :param indent:
-    :param force:
-    :return:
-    """
+        :param data:
+        :param filepath:
+        :param indent:
+        :param force:
+        :return:
+        """
     if type(data) != dict and type(data) != list:
         raise ValueError("Info cannot be {}. It must be a dictionary type".format(type(data)))
 
@@ -39,7 +42,7 @@ def write_json(data, filepath, indent=2, force=False):
         try:
             os.remove(filepath)
         except Exception as error:
-            raise ValueError("Failed to remove existing file {} \n {} ".format(filepath , str(error)))
+            raise ValueError("Failed to remove existing file {} \n {} ".format(filepath, str(error)))
 
     if not os.path.exists(filepath):
         try:
@@ -48,7 +51,8 @@ def write_json(data, filepath, indent=2, force=False):
             raise ValueError("Failed to create folders for following path {} ".format(str(error)))
 
     with open(filepath, "w") as writer:
-        json.dump(data, writer, sortkeys=True, indent=indent)
+        yaml.dump(data, writer, default_flow_style=False, explicit_start=True)
 
     return filepath
+
 
