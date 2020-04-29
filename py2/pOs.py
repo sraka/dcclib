@@ -1,12 +1,8 @@
-
 import getpass
 import os
-import re
-import sys
-import subprocess
 import shutil
+import sys
 import webbrowser
-import socket
 
 
 def get_username():
@@ -17,6 +13,7 @@ def get_username():
 
     return username
 
+
 def get_user_home():
     user_home = os.environ.get('HOME')
 
@@ -25,17 +22,20 @@ def get_user_home():
 
     return user_home
 
+
 def get_user_credentials():
     user_name = raw_input('Enter user name:').rstrip()
     password = getpass.getpass()
 
     return user_name, password
 
+
 def get_env_sep():
     if sys.platform == "win32":
         return ";"
     else:
         return ":"
+
 
 def get_platform():
     if sys.platform == "win32":
@@ -45,23 +45,27 @@ def get_platform():
     elif sys.platform == "linux" or sys.platform == "linux2":
         return "linux"
 
+
 def open_url(path):
-    if sys.platform == "darwin" : path = "file:///" + path;
+    if sys.platform == "darwin":
+        path = "file:///" + path
     webbrowser.open(path)
+
 
 def open_path_in_file_browser(path):
     if os.path.isdir(path):
         if get_platform() == 'windows':
             os.startfile(path)
         elif get_platform() == 'mac':
-            print "Function not defnied for linux"
+            print("Function not defnied for linux")
         elif get_platform() == 'linux':
             try:
                 os.system('xdg-open {}'.format(path))
             except:
-                raise ValueError ('Function not working as expected')
+                raise ValueError('Function not working as expected')
     else:
-        raise ValueError ('Path is not a directory')
+        raise ValueError('Path is not a directory')
+
 
 def remove_directory_contents(directory):
     for path in os.listdir(directory):
@@ -73,6 +77,7 @@ def remove_directory_contents(directory):
                 shutil.rmtree(file_path)
         except Exception as e:
             print(e)
+
 
 def ensure_directories(list_of_directories):
     """

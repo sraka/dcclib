@@ -2,10 +2,10 @@ import os
 import sys
 
 def py_getTxtFileDataAsList(path):
-	'''
-	Gives the list of all the lines in the txt File.
-	path = Full path (Dir + FileName)
-	'''
+    """
+    Gives the list of all the lines in the txt File.
+    path = Full path (Dir + FileName)
+    """
     if os.path.exists(path):
         with open(path, "r") as f:
             list = []
@@ -17,11 +17,11 @@ def py_getTxtFileDataAsList(path):
         print "Path Directory Does Not Exists"
 
 def py_getTxtFileInfo(path):
-	'''
-	Get the Info of the data that is present in the txt File
-	Total Lines = RESULT
-	Total Characters = RESULT
-	'''
+    """
+    Get the Info of the data that is present in the txt File
+    Total Lines = RESULT
+    Total Characters = RESULT
+    """
     numLines = numWords = numChars = 0
 
     with open(path,'r') as f:

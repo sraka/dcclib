@@ -22,7 +22,7 @@ class DatetimeBase(object):
 
     @staticmethod
     def get_current_date(self,format="default"):
-        '''
+        """
             @returns : Get Current Date formatted
 
             @param:
@@ -39,7 +39,7 @@ class DatetimeBase(object):
                     # format = 10 : Fri,May 31,2019
                     # format = 11 : Friday,May 31,2019
 
-        '''
+        """
         if format == "default":
             try:
                 return datetime.date.today().__str__()
@@ -77,18 +77,18 @@ class DatetimeBase(object):
             raise ValueError("Mode Number doesn't exist")
 
     def get_current_time(self,mode=1):
-        '''
+        """
             @returns : Current Time
-        '''
+        """
         if mode == 1:
             return strftime("%H:%M:%S", gmtime())
         elif mode ==2:
             return datetime.datetime.now().strftime('%H:%M:%S')
 
     def get_current_datetime(self):
-        '''
+        """
             @returns : Current Date & Time
-        '''
+        """
         return datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
 
