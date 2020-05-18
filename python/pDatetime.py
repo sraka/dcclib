@@ -82,7 +82,7 @@ class DatetimeBase(object):
         """
         if mode == 1:
             return strftime("%H:%M:%S", gmtime())
-        elif mode ==2:
+        elif mode == 2:
             return datetime.datetime.now().strftime('%H:%M:%S')
 
     def get_current_datetime(self):

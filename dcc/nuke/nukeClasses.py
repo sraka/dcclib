@@ -4,13 +4,19 @@ import nuke
 import nukescripts
 
 
-'''
+''' CALLING USING CLASS INHERITANCE
 import sys
 sys.path.append(r'D:/__CS/___HOME_DIR/pipeline/CoreLibrary/moduleNuke')
 import nukeClasses as nukeClasses;reload(nukeClasses)
 nukescene = nukeClasses.NukeSession()
 nukenode = nukeClasses.NukeNode()
 nukevray = nukeClasses.NukeVray()
+
+OR
+from nukeClasses import NukeSession , NukeNode , NukeVray
+nukescene = NukeSession()
+nukenode = NukeNode()
+nukevray = NukeVray()
 '''
 print __name__
 
