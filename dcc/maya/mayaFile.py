@@ -1,3 +1,8 @@
+
+
+__module__ = "__{}__".format(__name__)
+print(__module__)
+
 import os
 import sys
 import pymel.core as pm
