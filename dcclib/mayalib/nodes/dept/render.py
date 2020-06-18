@@ -16,6 +16,7 @@ def get_render_layers(mode=None):
     else:
         return [each for each in pm.ls(mode="renderLayer") if each.name() != 'defaultRenderLayer']
 
+
 def set_renderable_all(state):
     """ 
         Info:
@@ -34,6 +35,7 @@ def set_renderable_all(state):
         for each in rlys:
             each.attr('renderable').set(0)
 
+
 def set_renderable_current(state):
     """
         Info:
@@ -41,14 +43,16 @@ def set_renderable_current(state):
         Args:
             state = True/False , if True (Enable) , if Flase (Disable)     
     """
-    cur_rly = pm.editRenderLayerGlobals(q=1,crl=1)
+    cur_rly = pm.editRenderLayerGlobals(q=1, crl=1)
     if state:
-        pm.setAttr('{}.renderable'.format(cur_rly),1)
+        pm.setAttr('{}.renderable'.format(cur_rly), 1)
     else:
-        pm.setAttr('{}.renderable'.format(cur_rly),0)
+        pm.setAttr('{}.renderable'.format(cur_rly), 0)
+
 
 def get_renderer():
     return pm.getAttr("defaultRenderGlobals.currentRenderer")
+
 
 def set_renderer(render_engine_name):
     """ 
@@ -57,24 +61,26 @@ def set_renderer(render_engine_name):
         eg:     mayaRendering.set_renderer('vray')
     """
     if render_engine_name == 'arnold':
-        pm.setAttr("defaultRenderGlobals.currentRenderer",str(render_engine_name))
+        pm.setAttr("defaultRenderGlobals.currentRenderer", str(render_engine_name))
     elif render_engine_name == 'redshift':
-        pm.setAttr("defaultRenderGlobals.currentRenderer",str(render_engine_name))
+        pm.setAttr("defaultRenderGlobals.currentRenderer", str(render_engine_name))
     elif render_engine_name == 'vray':
-        pm.setAttr("defaultRenderGlobals.currentRenderer",str(render_engine_name))
+        pm.setAttr("defaultRenderGlobals.currentRenderer", str(render_engine_name))
     elif render_engine_name == 'mayaSoftware':
-        pm.setAttr("defaultRenderGlobals.currentRenderer",str(render_engine_name))
+        pm.setAttr("defaultRenderGlobals.currentRenderer", str(render_engine_name))
     elif render_engine_name == 'mayaHardware':
-        pm.setAttr("defaultRenderGlobals.currentRenderer",str(render_engine_name))
+        pm.setAttr("defaultRenderGlobals.currentRenderer", str(render_engine_name))
     elif render_engine_name == 'mayaHardware2':
-        pm.setAttr("defaultRenderGlobals.currentRenderer",str(render_engine_name))
+        pm.setAttr("defaultRenderGlobals.currentRenderer", str(render_engine_name))
     elif render_engine_name == 'mayaVector':
-        pm.setAttr("defaultRenderGlobals.currentRenderer",str(render_engine_name))
+        pm.setAttr("defaultRenderGlobals.currentRenderer", str(render_engine_name))
     elif render_engine_name == 'mentalray':
-        pm.setAttr("defaultRenderGlobals.currentRenderer",str(render_engine_name))
+        pm.setAttr("defaultRenderGlobals.currentRenderer", str(render_engine_name))
+
 
 def get_render_path():
-    return pm.renderSettings(fp=1,fin=1)[0]
+    return pm.renderSettings(fp=1, fin=1)[0]
+
 
 def get_render_directory():
     return os.path.dirname(get_render_path())
