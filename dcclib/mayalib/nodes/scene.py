@@ -13,6 +13,9 @@ class MayaScene(object):
     def __init__(self):
         print(__name__)
 
+    def test(self):
+        print("MayaScene test")
+
     @staticmethod
     def get_scene_name():
         return pm.sceneName().namebase.__str__()

@@ -1,6 +1,6 @@
 import os
 import sys
-from PySide import QtGui , QtCore
+# from PySide import QtGui , QtCore
 import maya.OpenMayaUI as OpenMayaUI
 from shiboken import wrapInstance
 from maya.app.general.mayaMixin import MayaQWidgetDockableMixin

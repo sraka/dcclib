@@ -7,15 +7,14 @@ import sys
 
 from Qt import QtGui, QtCore, QtWidgets
 
-app = QtWidgets.QApplication.instance()
 
 class NukeGui(object):
     def __init__(self):
         print(__name__)
+        self.app = QtWidgets.QApplication.instance()
 
-    @staticmethod
-    def NukeWindow():
-        for widget in app.topLevelWidgets():
+    def NukeWindow(self):
+        for widget in self.app.topLevelWidgets():
             if widget.metaObject().className() == 'Foundry::UI::DockMainWindow':
                 return widget
 

@@ -6,7 +6,7 @@ __author__ = 'sraka'
 
 from dcclib.mayalib.nodes.scene import MayaScene
 
-__all__ = ['MayaLib', 'MayaScene']
+# __all__ = ['MayaLib', 'MayaScene', 'scene']
 
 class MayaLib(object):
     def __init__(self):
@@ -14,4 +14,4 @@ class MayaLib(object):
 
     @staticmethod
     def test():
-        print("Maya test method")
+        print("MayaLib test")
