@@ -18,16 +18,13 @@ nukevray = Nukelib().nukevray
 
 """
 
-__version__ = '0.0.1'
-__author__ = 'sraka'
-
 from dcclib.nukelib.nodes.gui import NukeGui
 from dcclib.nukelib.nodes.node import NukeNode
 from dcclib.nukelib.nodes.scene import NukeScene
 from dcclib.nukelib.nodes.vray import NukeVray
 
 __all__ = ['NukeLib', 'nodes']
-
+required_modules = ['nuke', 'nukescripts']
 
 class NukeLib(object):
     """

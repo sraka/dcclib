@@ -9,6 +9,8 @@ import sys
 sys.path.append(r"E:\development\acgfilms\repos\FRAMEWORKS\corelib")
 from dcclib.nukelib import NukeLib
 from dcclib.mayalib import MayaLib
+mayalib = MayaLib()
+nukelib = NukeLib()
 
 
 

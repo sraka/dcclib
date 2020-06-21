@@ -4,7 +4,8 @@ import nuke
 import nukescripts
 
 
-''' CALLING USING CLASS INHERITANCE
+''' 
+CALLING USING --- CLASS INHERITANCE
 import sys
 sys.path.append(r'D:/__CS/___HOME_DIR/pipeline/CoreLibrary/moduleNuke')
 import nukeClasses as nukeClasses;reload(nukeClasses)
@@ -17,6 +18,21 @@ from nukeClasses import NukeSession , NukeNode , NukeVray
 nukescene = NukeSession()
 nukenode = NukeNode()
 nukevray = NukeVray()
+
+CALLING USING --- base class methedology
+from nuke.nukeSession.base import NukeSession as nukescene
+from nuke.nukeNode.base import NukeNode as nukenode
+from nuke.nukeVray.base import NukeVray as nukevray
+
+
+CALLING USING --- defining class in init file 
+from nukelib import NukeLib
+nukelib = NukeLib()
+
+nukelib.nukescene.test()
+nukelib.nukevray.test()
+
+
 '''
 print __name__
 

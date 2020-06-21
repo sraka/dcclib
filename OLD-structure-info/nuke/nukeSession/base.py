@@ -1,5 +1,8 @@
-
-
+"""
+from nuke.nukeSession.base import NukeSession as nukescene
+from nuke.nukeSession.base import NukeSession as nukescene
+from nuke.nukeSession.base import NukeSession as nukescene
+"""
 
 
 class NukeSession(object):
