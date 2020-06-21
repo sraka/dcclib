@@ -15,7 +15,7 @@ nukelib.nukescene.deselect_all_nodes()
 Usage inside the DCC appliacation.
 Load like this when lauching DCC application
 
-#NUKE
+#### NUKE
 ``` python
 from dcclib.nukelib import NukeLib
 nukescene = NukeLib().nukescene
@@ -27,7 +27,7 @@ nukescene.deselect_all_nodes()
 nukegui.NukeWindow()
 nukevray.list_vray_nodes()
 ```
-# MAYA
+#### MAYA
 ``` python
 from dcclib.mayalib import MayaLib
 mayascene = MayaLib().mayascene
