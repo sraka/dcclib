@@ -16,6 +16,7 @@ Usage inside the DCC appliacation.
 Load like this when lauching DCC application
 
 #### NUKE
+Place these inside the init.py file of nuke.
 ``` python
 from dcclib.nukelib import NukeLib
 nukescene = NukeLib().nukescene
@@ -28,6 +29,7 @@ nukegui.NukeWindow()
 nukevray.list_vray_nodes()
 ```
 #### MAYA
+Place this inside the userSetup.py file of maya.
 ``` python
 from dcclib.mayalib import MayaLib
 mayascene = MayaLib().mayascene
@@ -36,6 +38,7 @@ mayascene.get_scene_name()
 mayascene.get_workspace_path()
 ```
 
+#### BLENDER
 
 
 
