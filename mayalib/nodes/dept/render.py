@@ -5,12 +5,12 @@ import maya.cmds as cmds
 
 
 def get_render_layers(mode=None):
-    '''
-        Args: 
+    """
+        Args:
             mode = the mode of data is req to be returned , default it will return the obj mode
         ex:
             mayaRendering.get_render_layers('list')     # Will Return the list of data
-    '''
+    """
     if mode == 'list':
         return [each.name() for each in pm.ls(mode="renderLayer") if each.name() != 'defaultRenderLayer']
     else:

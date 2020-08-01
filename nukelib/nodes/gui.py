@@ -13,6 +13,10 @@ class NukeGui(object):
         print(__name__)
         self.app = QtWidgets.QApplication.instance()
 
+    @staticmethod
+    def list_nuke_menus:
+        return [e.name() for e in nuke.menu('Nuke').items()]
+
     def NukeWindow(self):
         for widget in self.app.topLevelWidgets():
             if widget.metaObject().className() == 'Foundry::UI::DockMainWindow':

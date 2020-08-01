@@ -3,11 +3,11 @@
 """
 
 __module__ = "__{}__".format(__name__)
-
+print("=======Maya Scene========")
 import os
 import sys
-# import pymel.core as pm
-# import maya.cmds as cmds
+import pymel.core as pm
+import maya.cmds as cmds
 
 class MayaScene(object):
     def __init__(self):
@@ -54,7 +54,7 @@ class MayaScene(object):
                 cmds.unknownPlugin(plugin, r=True)
 
     @staticmethod
-    def list_all_plugins(status=all, info=False):
+    def list_all_plugins(status="all", info=False):
         """
         List all plugins , with details
         :param status:
@@ -63,7 +63,7 @@ class MayaScene(object):
         """
         if status == "enabled":
             print("all active plugins")
-        if status == "disabled":
+        elif status == "disabled":
             print("all inactive plugins")
-        if status == "all":
+        elif status == "all":
             print("List all plugins")
