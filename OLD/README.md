@@ -11,11 +11,14 @@
 examples:
 Usage in Python Scripts
 ``` python
-import dcclib.mayalib as ml
-dir(ml)
+from dcclib.mayalib import MayaLib
+mayalib = MayaLib()
 
-import dcclib.nukelib as nl
-dir(nl)
+from dcclib.nukelib import NukeLib
+nukelib = NukeLib()
+nukelib.nukescene.test()
+nukelib.nukescene.delete_all_nodes()
+nukelib.nukescene.deselect_all_nodes()
 ```
 Usage inside the DCC appliacation.
 Load like this when lauching DCC application
@@ -23,17 +26,16 @@ Load like this when lauching DCC application
 #### NUKE
 Place these inside the init.py file of nuke.
 ``` python
-import dcclib.nukelib as nl
+from dcclib.nukelib import NukeLib
+nukescene = NukeLib().nukescene
+nukevray = NukeLib().nukevray
+nukenode = NukeLib().nukenode 
+nukegui = NukeLib().nukegui
 
-nl.scene.test()
-nl.scene.delete_all_nodes()
-nl.scene.deselect_all_nodes()
-
-nl.gui.NukeWindow()
-
-nl.vray.list_vray_nodes()
+nukescene.deselect_all_nodes()
+nukegui.NukeWindow()
+nukevray.list_vray_nodes()
 ```
-
 #### MAYA
 Place this inside the userSetup.py file of maya.
 ``` python
