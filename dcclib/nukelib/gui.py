@@ -1,5 +1,5 @@
 """
-
+Functions related to nuke GUI
 """
 
 import os

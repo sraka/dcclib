@@ -1,5 +1,5 @@
 """
-
+Functions related to nuke nodes
 """
 import nuke
 import nukescripts

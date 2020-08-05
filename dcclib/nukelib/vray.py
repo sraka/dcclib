@@ -1,5 +1,5 @@
 """
-Functions for
+Functions related to nuke vray nodes
 """
 import nuke
 import nukescripts
