@@ -1,6 +1,8 @@
 """
 
 """
+import nuke
+import nukescripts
 
 def list_selected_nodes(name=False):
     """

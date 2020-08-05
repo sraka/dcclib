@@ -6,10 +6,9 @@ import os
 import sys
 import nuke
 import nukescripts
-
 from PySide2 import QtGui, QtCore, QtWidgets
 
-# app = QtWidgets.QApplication.instance()
+app = QtWidgets.QApplication.instance()
 def test_():
     print("test")
 
@@ -24,7 +23,7 @@ def NukeWindow():
         if widget.metaObject().className() == 'Foundry::UI::DockMainWindow':
             return widget
 
-def register_ui(func, title=None, panel=None):
+def registerUi(func, title=None, panel=None):
     """
     Args :      func = Name of Function to be called (str)
                 title = title of the tool (str)
