@@ -10,31 +10,40 @@ in a common dir for ease of access.
 
 ## Who is dcclib for?
 
-*For Novice*
+**For Novice**
 
-*For Technical Director*
+**For Technical Director**
 There are many instances where TD's write maya scripts , these methods  
 can be used to quickly get some jobs done without writing the same lines  
 over and over again in every maya python script.
 
-*For Techhical TroubleShooting*
+**For Techhical TroubleShooting**
 Methods from these can be used for quick trouble shooting of the scene  
 file in your dcc package.  
 Makes the process of finding the problem faster.
 
 ## Installation
 
-## Quick Start
+## Quick Start | Getting Started
 
 examples:
-Usage in Python Scripts
+Use in Python Scripts / DCC script editor
 ``` python
 import dcclib.mayalib as ml
 import dcclib.nukelib as nl
 import dcclib.blenderlib as bl
 ```
 Usage inside the DCC appliacation.
-Load like this when lauching DCC application
+
+Setup before launch  (Describe this later)  
+NUKE:  
+    add in nuke.pluginAddPath() in __init__ file  
+MAYA :  
+    add in PYTHONPATH ??
+
+After launching your dcc application.
+    Add the path where your dcclib module is present in sys.path
+
 
 #### NUKE
 Place these inside the init.py file of nuke.
