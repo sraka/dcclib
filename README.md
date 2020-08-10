@@ -12,10 +12,8 @@ examples:
 Usage in Python Scripts
 ``` python
 import dcclib.mayalib as ml
-dir(ml)
-
 import dcclib.nukelib as nl
-dir(nl)
+import dcclib.blenderlib as bl
 ```
 Usage inside the DCC appliacation.
 Load like this when lauching DCC application
@@ -37,8 +35,12 @@ nl.vray.list_vray_nodes()
 #### MAYA
 Place this inside the userSetup.py file of maya.
 ``` python
-from dcclib.mayalib import MayaLib
-mayascene = MayaLib().mayascene
+import dcclib.mayalib as ml
+
+# To get dcclib maya modules info
+ml._modules(ml)
+ml._modules(ml, all=True)
+
 
 mayascene.get_scene_name()
 mayascene.get_workspace_path()
