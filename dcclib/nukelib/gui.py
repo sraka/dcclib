@@ -23,21 +23,29 @@ def NukeWindow():
         if widget.metaObject().className() == 'Foundry::UI::DockMainWindow':
             return widget
 
-def registerUi(func, title=None, panel=None):
+def registerUiPySide(func, title=None, panel=None):
     """
+    Register the UI as a panel
     Args :      func = Name of Function to be called (str)
                 title = title of the tool (str)
-                panel = Panel name (1 = Properties Panel , 2 = Viewer Panel)
-    Example :   register_ui(func = 'NukeTestWindow')
-                register_ui(func = 'NukeTestWindow',title = 'TestWindow',panel=2)
+                panel = Panel name (default='Properties', 'Viewer')
+
+    Example :   nl.gui.registerUiPySide("Boilerplate")
+                nl.gui.registerUiPySide("Boilerplate", panel="Viewer")
+                nl.gui.registerUiPySide("Boilerplate", panel="Viewer", title="MyNewWidow")
+    :param func: str
+    :param title: str
+    :param panel:
+    :return:
     """
-    if panel == 1 or panel == None:
+    if panel == 'Properties' or panel == None:
         panel = 'Properties.1'
-    elif panel == 2:
+    elif panel == 'Viewer':
         panel = 'Viewer.1'
 
     if title == None:
-        title = 'Test'
+        title = '{}_UI'.format(func)
 
     pane = nuke.getPaneFor(str(panel))
-    panels.registerWidgetAsPanel(str(func), str(title), 'uk.co.thefoundry.{}_UI'.format(title), True).addToPane(pane)
+    pane_ui = nukescripts.panels.registerWidgetAsPanel(str(func), str(title), 'uk.co.thefoundry.{}_pane'.format(title), True)
+    pane_ui.addToPane(pane)

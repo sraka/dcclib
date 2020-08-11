@@ -1,3 +1,6 @@
+"""
+Functions related to maya render settings and rendering process
+"""
 import os
 import sys
 import pymel.core as pm

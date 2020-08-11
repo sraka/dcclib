@@ -50,13 +50,30 @@ Place these inside the init.py file of nuke.
 ``` python
 import dcclib.nukelib as nl
 
-nl.scene.test()
+# MODULE : scene
 nl.scene.delete_all_nodes()
 nl.scene.deselect_all_nodes()
+help(nl.scene.list_disabled_nodes)
 
+# MODULE : node
+selNode = nuke.selectedNode()
+nl.node.isEnabled(selNode)
+nl.node.isUsingLifetime(selNode)
+nl.node.getAllInputs(selNode)
+nl.node.__name__   # Module name : 'dcclib.nukelib.node'
+nl.node.__doc__    # Module docstring
+nl.node.__file__   # Module File path 
+nl.node.__class__  # <type 'module'>
+
+# MODULE : gui
 nl.gui.NukeWindow()
+nl.gui.list_node_menus()
+nl.gui.list_nuke_menus()
+nl.gui.registerUi()
 
+# MODULE : vray
 nl.vray.list_vray_nodes()
+
 ```
 
 #### MAYA
