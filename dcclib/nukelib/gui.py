@@ -47,5 +47,9 @@ def registerUiPySide(func, title=None, panel=None):
         title = '{}_UI'.format(func)
 
     pane = nuke.getPaneFor(str(panel))
-    pane_ui = nukescripts.panels.registerWidgetAsPanel(str(func), str(title), 'uk.co.thefoundry.{}_pane'.format(title), True)
+    pane_ui = nukescripts.panels.registerWidgetAsPanel(widget=str(func),
+                                                       name=str(title),
+                                                       id='uk.co.thefoundry.{}_pane'.format(title),
+                                                       create=True
+                                                       )
     pane_ui.addToPane(pane)
