@@ -1,8 +1,17 @@
 # NUKE
 
+# Table of contents
+[Registering PySide UI's](#registering-pyside-uis)
+
+
+
+
 ## Registering PySide UI's
 
-Example UI
+Example to understand how to use nukelib for registering PySide UIs  
+within nuke.
+
+A PySide2 UI
 ``` python
 from PySide2 import QtGui, QtWidgets
 
@@ -27,7 +36,7 @@ panel = nukescripts.panels.registerWidgetAsPanel('Boilerplate', 'Test panel', 'u
 panel.addToPane(pane)
 ```
 
-Registering using nukelib
+**Registering using nukelib**
 ``` python
 import dcclib.nukelib as nl
 nl.gui.registerUiPySide("Boilerplate")                  # By default it registers on Properties panel
