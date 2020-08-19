@@ -75,6 +75,7 @@ nl.gui.registerUi()
 nl.vray.list_vray_nodes()
 
 ```
+To view more examples, [NUKE](./doc-md/NUKE.md)
 
 #### MAYA
 Place this inside the userSetup.py file of maya.
