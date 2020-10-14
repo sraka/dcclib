@@ -1,10 +1,11 @@
 """
 get
+list
 set
 remove/delete
-list
 """
-print("Improrted Scene module. {}".format(__name__))
+
+print("Import Module : {}".format(__name__))
 import pymel.core as pm
 import maya.cmds as cmds
 

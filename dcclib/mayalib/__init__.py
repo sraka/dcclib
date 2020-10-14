@@ -1,13 +1,12 @@
 """
 
 """
-
+import inspect
 from dcclib.mayalib.nodes.general import scene
 from dcclib.mayalib.nodes.general import gui
 from dcclib.mayalib.nodes.general import info
 from dcclib.mayalib.nodes.general import reference
 from dcclib.mayalib.nodes.general import xgen
-
 from dcclib.mayalib.nodes.dept import render
 
 
@@ -20,10 +19,14 @@ from dcclib.mayalib.nodes.dept import render
 # from dcclib.mayalib.nodes.general.scene import *
 
 
+# Have functions to print the list of all available functions for a moduele
+# eg : _get_lib_list("scene")     -  print all function present in this file
+# veg : _get_lib_list("vray")
+
 import pymel.core as pm
 import maya.cmds as cmds
 
-print("SDFSDF")
+print("Check 1")
 
 def _modules(module, all=None):
     """
@@ -35,7 +38,6 @@ def _modules(module, all=None):
     :param all:
     :return:
     """
-    import inspect
 
     # mod_list = [('cmds', <module 'maya.cmds' from
     # 'C:\Program Files\Autodesk\Maya2018\Python\lib\site-packages\maya\cmds\__init__.py'>)]
@@ -56,4 +58,4 @@ def _modules(module, all=None):
             ))
 
 
-print("asdfsfsfa--")
+print("Check 2")
